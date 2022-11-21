@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_delivery_slip">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <table width="100%" style="height:25%; border-collapse:collapse;">
+                        <tr>
+                            <td width="40%"
+                                style=" border:1px solid black; height:200px;">
+                                <div style="width:45%; padding-left:70px; padding-top:10px;">
+                                    <img t-att-src="image_data_uri(o.company_id.logo)"/>
+                                </div>
+                            </td>
+                            <td width="60%" style="border:1px solid black; padding-left:20px; padding-top:20px;">
+                                <span t-field="o.company_id.street"/><br/>
+                                <span t-field="o.company_id.street2"/><br/>
+                                <span t-field="o.company_id.city"/><br/>
+                                <span t-field="o.company_id.state_id"/><br/>
+                                <span t-field="o.company_id.zip"/><br/>
+                                <span t-field="o.company_id.country_id"/><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"
+                                style=" border: 1px solid black; height:250px; padding-left:10px;">
+                                <t t-set="i" t-value="0"/>
+
+                                <t t-foreach="o.order_line" t-as="q">
+                                    <t t-set="i" t-value="i+q.product_uom_qty"/>
+                                </t>
+                                  <h2>TOTAL ITEMS : <span t-esc="str(i)"/></h2>
+                                  <h2>
+                                      <span t-field="o.partner_id.name"/><br/>
+                                      <span t-field="o.partner_id.street"/>
+                                      <span t-field="o.partner_id.street2"/>
+                                      <span t-field="o.partner_id.city"/>
+                                      <span t-field="o.partner_id.city"/>
+                                      <span t-field="o.partner_id.state_id"/>
+                                      <span t-field="o.partner_id.zip"/>
+                                      <span t-field="o.partner_id.country_id"/>
+                                  </h2>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

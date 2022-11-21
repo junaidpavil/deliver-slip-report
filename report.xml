@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+        id="deliver_slip_report"
+        string="Delivery Slip"
+        model="sale.order"
+        report_type="qweb-pdf"
+        name="orbiz.report_delivery_slip"
+        file="orbiz.report_delivery_slip"/>
+
+
+    <report id="pos_sale_report_new"
+        string="Pos Sale Report"
+        model="report.orbiz.pos_sale_report"
+        report_type="qweb-pdf"
+        name="orbiz.pos_sale_report"
+        file="orbiz.pos_sale_report"/>
+
+
+</odoo>
